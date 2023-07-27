@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+
+metadata:
+  name: weather-app-deployment
+
+spec:
+  selector:
+    matchLabels:
+      component: weather-app
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        component: weather-app
+    spec:
+      containers:
+      - name: weather-app-container
+        image: utsabdutta/weather-app:latest
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        env:
+        - name: POSTGRES_HOST
+          value: postgres-service
+        - name: POSTGRES_USER
+          value: utsabdutta
+        - name: POSTGRES_PORT
+          value: '5432'
+        - name: POSTGRES_DB
+          value: weather_app
+        - name: PGPASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: pgpassword
+              key: PGPASSWORD

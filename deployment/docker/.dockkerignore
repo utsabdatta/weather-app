@@ -1,0 +1,11 @@
+logs/
+.git
+*.md
+*.log
+*.db
+*.cache
+__pycache__
+env/
+*.env
+app/*.log
+.idea

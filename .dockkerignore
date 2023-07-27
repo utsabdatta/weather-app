@@ -1,0 +1,17 @@
+logs/
+.git
+*.md
+!read.md
+*.log
+*.db
+*.cache
+__pycache__
+env/
+*.env
+app/*.log
+.idea
+.DS_Store
+app/.DS_Store
+app/static/.DS_Store
+app/static/icons/.DS_Store
+deployment/docker/.DS_Store
